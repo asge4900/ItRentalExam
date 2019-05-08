@@ -33,14 +33,18 @@
     <br />
     <br />
     <h2>Opret nyt IT-udstyr</h2>
-    @*<div class="form">
+    <div class="form">
         <form asp-page="Renters">
             <label asp-for="Renter.Name"></label>
             <input asp-for="Renter.Name" />
-            <label asp-for="Renter.RenterLevel"></label>
-            <input asp-for="Renter.RenterLevel" />           
+            <label asp-for="Renter.RenterLevel">Rettighed</label>
+            <select asp-for="Renter.RenterLevel">
+                <option value="3">Starter</option>
+                <option value="5">Normal</option>
+                <option value="8">Top lejere</option>
+            </select>          
             <button type="submit">Opret</button>
         </form>
-    </div>*@
+    </div>
 </div>
 

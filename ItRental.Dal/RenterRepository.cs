@@ -43,11 +43,11 @@ namespace ItRental.Dal
             return renters;
         }
 
-        //public int AddEquipment(Equipment equipment)
-        //{
-        //    string sql = $"INSERT INTO dbo.Equipments VALUES ('{equipment.Name}', '{equipment.Category}', {equipment.Units})";
+        public int AddRenter(Renter renter)
+        {
+            string sql = $"INSERT INTO dbo.Renters VALUES ('{renter.Name}', {(int)renter.RenterLevel})";
 
-        //    return ExecuteNonQuery(sql);
-        //}
+            return ExecuteNonQuery(sql);
+        }
     }
 }

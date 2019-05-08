@@ -13,7 +13,7 @@ namespace ItRental.Web.Pages
     {
         [BindProperty]
         public Renter Renter { get; set; }
-        public List<Renter> Renters { get; set; } = new List<Renter>();
+        public List<Renter> Renters { get; set; } = new List<Renter>();      
 
         public RentersModel()
         {
@@ -25,11 +25,11 @@ namespace ItRental.Web.Pages
 
         }
 
-        //public void OnPost()
-        //{
-        //    EquipmentRepository equipmentRepository = new EquipmentRepository();
+        public void OnPost()
+        {
+            RenterRepository renterRepository = new RenterRepository();
 
-        //    equipmentRepository.AddEquipment(Equipment);
-        //}
+            renterRepository.AddRenter(Renter);
+        }
     }
 }
