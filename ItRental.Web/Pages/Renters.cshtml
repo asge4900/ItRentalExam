@@ -1,0 +1,46 @@
+﻿@page
+@model ItRental.Web.Pages.RentersModel
+@{
+    ViewData["Title"] = "Renters";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>Oversigt over lånere</h2>
+<div class="content">
+    <table>
+        <tr>
+            <th>Navn</th>
+            <th>Rettighed</th>            
+            @*<th>Rediger</th>*@
+        </tr>
+        <tbody>
+            @{
+                foreach (Renter renter in Model.Renters)
+                {
+                    <tr>
+                        <td>@renter.Name</td>
+                        <td>@renter.RenterLevel</td>                        
+                        @*<td>
+                            <a href=""><i class="fa fa-edit" aria-hidden="true"></i></a>&nbsp;&nbsp;<a href="">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                        </td>*@
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <h2>Opret nyt IT-udstyr</h2>
+    @*<div class="form">
+        <form asp-page="Renters">
+            <label asp-for="Renter.Name"></label>
+            <input asp-for="Renter.Name" />
+            <label asp-for="Renter.RenterLevel"></label>
+            <input asp-for="Renter.RenterLevel" />           
+            <button type="submit">Opret</button>
+        </form>
+    </div>*@
+</div>
+
