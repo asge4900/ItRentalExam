@@ -12,7 +12,7 @@ namespace ItRental.Dal
         public List<Renter> GetRenters()
         {
             string sql = "SELECT * FROM dbo.Renters r";
-            return HandleData(ExecuteQuery(sql));
+            return HandleData(ExecuteQuery(sql));            
         }
 
 

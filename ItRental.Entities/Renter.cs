@@ -12,9 +12,9 @@ namespace ItRental.Entities
         public string Name { get; set; }
         //[Display(RenterLevel = "Rettighed")]
         public RenterLevel RenterLevel { get; set; }
-        public List<Rental> Rentals { get; set; }
+        public List<Rental> Rentals { get; set; } = new List<Rental>();
         public int NumberOfRentals { get;}
-        
+
         //public Rental NextRentalDue()
         //{
 
@@ -22,7 +22,16 @@ namespace ItRental.Entities
 
         //public bool GotOverdueRental()
         //{
-
+        //    bool gotOverDueRental = false;
+        //    foreach (Rental rental in Rentals)
+        //    {
+        //        if (rental.ReturnTime < DateTime.Now)
+        //        {
+        //            gotOverDueRental = true;
+        //        }       
+               
+        //    }
+        //    return gotOverDueRental;
         //}
     }
 }

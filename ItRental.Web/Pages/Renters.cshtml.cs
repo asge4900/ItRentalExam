@@ -11,14 +11,18 @@ namespace ItRental.Web.Pages
 {
     public class RentersModel : PageModel
     {
-        [BindProperty]
+        
         public Renter Renter { get; set; }
-        public List<Renter> Renters { get; set; } = new List<Renter>();      
+        public List<Renter> Renters { get; set; } = new List<Renter>();
+        public List<Rental> Rentals { get; set; } = new List<Rental>();
 
         public RentersModel()
         {
             RenterRepository renterRepository = new RenterRepository();
-            Renters = renterRepository.GetRenters();            
+            Renters = renterRepository.GetRenters();
+
+            RentalRepository rentalRepository = new RentalRepository();
+            Rentals = rentalRepository.GetRentals();
         }
         public void OnGet()
         {

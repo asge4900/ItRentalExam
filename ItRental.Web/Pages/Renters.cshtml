@@ -21,15 +21,16 @@
             @{
                 foreach (Renter renter in Model.Renters)
                 {
-                    <tr>
-                        <td>@renter.Name</td>
-                        <td>@renter.RenterLevel</td>                        
-                        @*<td>
-                            <a href=""><i class="fa fa-edit" aria-hidden="true"></i></a>&nbsp;&nbsp;<a href="">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </a>
-                        </td>*@
-                    </tr>
+            <tr>
+                <td>@renter.Name</td>
+                <td>@renter.RenterLevel</td>
+                <td>@renter.GotOverdueRental()</td>
+                @*<td>
+                    <a href=""><i class="fa fa-edit" aria-hidden="true"></i></a>&nbsp;&nbsp;<a href="">
+                         <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+               </td>*@
+            </tr>
                 }
             }
         </tbody>
