@@ -31,5 +31,11 @@ namespace ItRental.Web.Pages
 
             renterRepository.AddRenter(Renter);
         }
+
+        public void OnPostSeach()
+        {
+            RenterRepository renterRepository = new RenterRepository();
+            Renters = renterRepository.FindRenter(Renter);
+        }
     }
 }

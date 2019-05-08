@@ -7,6 +7,10 @@
 
 <h2>Oversigt over lånere</h2>
 <div class="content">
+    <form asp-page="Renters" asp-page-handler="Seach">
+        <input asp-for="Renter.Name" />
+        <input type="submit" value="Søg" />
+    </form>
     <table>
         <tr>
             <th>Navn</th>

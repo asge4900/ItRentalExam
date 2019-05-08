@@ -8,22 +8,20 @@ namespace ItRental.Dal
 {
     public class RenterRepository : BaseRepository
     {
-        /// <summary>
-        /// Retrieves all equipments from the database
-        /// </summary>
-        /// <returns></returns>
+        
         public List<Renter> GetRenters()
         {
             string sql = "SELECT * FROM dbo.Renters r";
             return HandleData(ExecuteQuery(sql));
         }
 
-        /// <summary>
-        /// Helper method used to convert DataTable to a list of Equipments.
-        /// Returns an empty list if the parameter is null.
-        /// </summary>
-        /// <param name="dataTable"></param>
-        /// <returns></returns>
+
+        public List<Renter> FindRenter (Renter renter)
+        {
+            string sql = $"SELECT * FROM dbo.Renters r WHERE r.Name LIKE '%{renter.Name}%'";
+            return HandleData(ExecuteQuery(sql));
+        }
+        
         private List<Renter> HandleData(DataTable dataTable)
         {
             List<Renter> renters = new List<Renter>();
