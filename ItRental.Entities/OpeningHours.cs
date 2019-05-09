@@ -9,5 +9,10 @@ namespace ItRental.Entities
         public string Day { get; set; }
         public string OpeningHour { get; set; }
         public string ClosingHour { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Day} kl. {OpeningHour} - {ClosingHour}";
+        }
     }
 }

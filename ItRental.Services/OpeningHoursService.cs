@@ -10,14 +10,14 @@ namespace ItRental.Services
     {
         public string Url { get; set; }
 
-        public List<OpeningHourInfo> GetOpeningHour()
+        public OpeningHourInfo GetOpeningHour()
         {
             if (!string.IsNullOrWhiteSpace(Url))
             {
                 using (var client = new WebClient())
                 {
                     string json = client.DownloadString(Url);
-                    List<OpeningHourInfo> openingHourInfo = JsonConvert.DeserializeObject<List<OpeningHourInfo>>(json);
+                    OpeningHourInfo openingHourInfo = JsonConvert.DeserializeObject<OpeningHourInfo>(json);
                     return openingHourInfo;
                 }
             }

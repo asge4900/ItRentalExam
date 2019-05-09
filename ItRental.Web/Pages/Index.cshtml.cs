@@ -11,15 +11,15 @@ namespace ItRental.Web.Pages
 {
     public class IndexModel : PageModel
     {
-        public OpeningHours OpeningHours { get; set; }
-        public List<OpeningHourInfo> OpeningHourInfo { get; set; }
+        public List<OpeningHours> OpeningHours { get; set; }
         public void OnGet()
         {
-            //OpeningHoursService openingHoursService = new OpeningHoursService()
-            //{
-            //    Url = "http://api.aspitcloud.dk/openinghours"
-            //};
-            //OpeningHourInfo = openingHoursService.GetOpeningHour();         
+            OpeningHoursService openingHoursService = new OpeningHoursService()
+            {
+                Url = "http://api.aspitcloud.dk/openinghours"
+            };
+            OpeningHourInfo openingHourInfo = openingHoursService.GetOpeningHour();
+            OpeningHours = openingHourInfo.OpeningHours;
         }
     }
 }
