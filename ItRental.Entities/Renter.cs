@@ -20,18 +20,18 @@ namespace ItRental.Entities
 
         //}
 
-        //public bool GotOverdueRental()
-        //{
-        //    bool gotOverDueRental = false;
-        //    foreach (Rental rental in Rentals)
-        //    {
-        //        if (rental.ReturnTime < DateTime.Now)
-        //        {
-        //            gotOverDueRental = true;
-        //        }       
-               
-        //    }
-        //    return gotOverDueRental;
-        //}
+        public bool IsOverdueRental()
+        {
+            bool gotOverDueRental = false;
+            foreach (Rental rental in Rentals)
+            {
+                if (rental.ReturnTime < DateTime.Now)
+                {
+                    gotOverDueRental = true;
+                }
+
+            }
+            return gotOverDueRental;
+        }
     }
 }
