@@ -46,11 +46,47 @@ namespace ItRental.Dal
             return rentals;
         }
 
-        //public int AddRenter(Renter renter)
-        //{
-        //    string sql = $"INSERT INTO dbo.Renters VALUES ('{renter.Name}', {(int)renter.RenterLevel})";
+        public int AddRenter(Renter renter)
+        {
+            string sql = $"INSERT INTO dbo.Renters VALUES ('{renter.Name}', {(int)renter.RenterLevel})";
 
-        //    return ExecuteNonQuery(sql);
-        //}
+            return ExecuteNonQuery(sql);
+        }
+
+        public List<Rental> GetRentalDetailsFor(int id)
+        {
+            List<Rental> rentals = new List<Rental>();
+
+            string sql = $"SELECT r2.*, e.Name AS EquipmentName, r.RentalId, r.RentalTime, r.ReturnTime, r.Units FROM dbo.Rentals r JOIN dbo.Equipments e ON r.EquipmentsId = e.EquipmentId JOIN dbo.Renters r2 ON r.RenterId = r2.RenterId WHERE r2.RenterId = {id}";
+
+            DataTable rentalsTable = ExecuteQuery(sql);
+            
+            foreach (DataRow row in rentalsTable.Rows)
+            {
+                Equipment equipment = new Equipment()
+                {
+                    Name = (string)row["EquipmentName"]
+                };
+
+                 Renter renter = new Renter()
+                {
+                    Id = (int)row["RenterId"],
+                    Name = (string)row["Name"],
+                    RenterLevel = (RenterLevel)row["RenterLevel"]
+                 };
+
+                Rental rental = new Rental()
+                {
+                    Id = (int)row["RenterId"],
+                    RentalTime = (DateTime)row["RentalTime"],
+                    ReturnTime = (DateTime)row["ReturnTime"],
+                    Units = (int)row["Units"],
+                    Equipment = equipment,
+                    Renter = renter
+                };
+                rentals.Add(rental);
+            }
+            return rentals;
+        }
     }
 }

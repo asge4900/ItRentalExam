@@ -11,7 +11,7 @@ namespace ItRental.Web.Pages
 {
     public class RentersModel : PageModel
     {
-        
+        [BindProperty]
         public Renter Renter { get; set; }
         public List<Renter> Renters { get; set; } = new List<Renter>();
         public List<Rental> Rentals { get; set; } = new List<Rental>();

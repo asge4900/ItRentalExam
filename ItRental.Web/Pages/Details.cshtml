@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id}"
 @model ItRental.Web.Pages.DetailsModel
 @{
     ViewData["Title"] = "Details";
@@ -7,3 +7,36 @@
 
 <h2>Details</h2>
 
+<div class="content">
+    <form asp-page="Renters" asp-page-handler="Seach">
+        <input asp-for="Renter.Name" />
+        <input type="submit" value="Søg" />
+    </form>
+    <table>
+        <tr>
+            <th>Navn</th>
+            <th>Rettighed</th>
+            @*<th>Rediger</th>*@
+        </tr>
+        <tbody>
+            @{
+                foreach (Renter renter in Model.Renters)
+                {
+
+                    <tr>
+                        <td>@renter.Name</td>
+                        <td>@renter.RenterLevel</td>
+                        @*<td>@renter.IsOverdueRental()</td>*@
+                        @*<td>
+                                <a href=""><i class="fa fa-edit" aria-hidden="true"></i></a>&nbsp;&nbsp;<a href="">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </a>
+                            </td>*@
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <br />
+    <br />
+ </div>
